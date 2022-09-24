@@ -41,14 +41,14 @@ fun HomeScreen(
 fun MainContent(
     navController: NavController,
     movieList: List<String> = listOf(
-        "1",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "3",
-        "4",
+        "Thor",
+        "Avenger",
+        "Damn",
+        "Shit",
+        "Toy",
+        "Tele",
+        "Fuck",
+        "Yow",
     )
 ) {
     val mContext = LocalContext.current
@@ -58,7 +58,7 @@ fun MainContent(
         LazyColumn {
             items(items = movieList) { movie ->
                 MovieRow(movie = movie){
-                    navController.navigate(MovieScreens.DetailsScreen.name)
+                    navController.navigate(MovieScreens.DetailsScreen.name+"/$it")
                 }
             }
         }
