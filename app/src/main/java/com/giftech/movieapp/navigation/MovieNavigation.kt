@@ -1,9 +1,12 @@
 package com.giftech.movieapp.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavArgument
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.giftech.movieapp.screens.details.DetailsScreen
 import com.giftech.movieapp.screens.home.HomeScreen
 
@@ -18,8 +21,11 @@ fun MovieNavigation() {
         composable(MovieScreens.HomeScreen.name) {
             HomeScreen(navController)
         }
-        composable(MovieScreens.DetailsScreen.name) {
-            DetailsScreen(navController)
+        composable(
+            route = MovieScreens.DetailsScreen.name + "/{movie}",
+            arguments = listOf(navArgument("movie") { type = NavType.StringType })
+        ) {
+            DetailsScreen(navController,it.arguments?.getString("movie"))
         }
 
     }
