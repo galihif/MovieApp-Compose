@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.giftech.movieapp.navigation.MovieScreens
 
 @Composable
 fun HomeScreen(
@@ -50,16 +51,14 @@ fun MainContent(
         "4",
     )
 ) {
-
     val mContext = LocalContext.current
-
     Column(
         Modifier.padding(12.dp)
     ) {
         LazyColumn {
             items(items = movieList) { movie ->
                 MovieRow(movie = movie){
-                    Toast.makeText(mContext, it, Toast.LENGTH_SHORT).show()
+                    navController.navigate(MovieScreens.DetailsScreen.name)
                 }
             }
         }
