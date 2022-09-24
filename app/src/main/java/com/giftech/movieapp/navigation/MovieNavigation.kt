@@ -13,8 +13,8 @@ fun MovieNavigation() {
     NavHost(
         navController = navController,
         startDestination = MovieScreens.HomeScreen.name
-    ){
-        composable(MovieScreens.HomeScreen.name){
+    ) {
+        composable(MovieScreens.HomeScreen.name) {
             HomeScreen(navController)
         }
     }
