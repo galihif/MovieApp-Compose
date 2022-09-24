@@ -57,8 +57,8 @@ fun MainContent(
     ) {
         LazyColumn {
             items(items = movieList) { movie ->
-                MovieRow(movie = movie){
-                    navController.navigate(MovieScreens.DetailsScreen.name+"/$it")
+                MovieRow(movie = movie) {
+                    navController.navigate(MovieScreens.DetailsScreen.name + "/$it")
                 }
             }
         }
@@ -74,7 +74,7 @@ fun MovieRow(movie: String, onItemClick: (String) -> Unit) {
             .fillMaxWidth()
             .height(120.dp)
             .clickable {
-                onItemClick("Click $movie")
+                onItemClick(movie)
             },
         shape = RoundedCornerShape(16.dp),
         elevation = 8.dp
