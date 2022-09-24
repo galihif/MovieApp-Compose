@@ -7,14 +7,15 @@ import androidx.navigation.NavController
 
 @Composable
 fun DetailsScreen(
-    navController: NavController
+    navController: NavController,
+    movie:String?
 ) {
     Scaffold {
-        MainContent()
+        MainContent(movie)
     }
 }
 
 @Composable
-fun MainContent() {
-    Text("Detail")
+fun MainContent(movie: String?) {
+    Text("$movie")
 }
