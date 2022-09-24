@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.giftech.movieapp.screens.details.DetailsScreen
 import com.giftech.movieapp.screens.home.HomeScreen
 
 
@@ -17,5 +18,9 @@ fun MovieNavigation() {
         composable(MovieScreens.HomeScreen.name) {
             HomeScreen(navController)
         }
+        composable(MovieScreens.DetailsScreen.name) {
+            DetailsScreen(navController)
+        }
+
     }
 }
