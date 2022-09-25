@@ -1,10 +1,14 @@
 package com.giftech.movieapp.screens.details
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
@@ -13,23 +17,39 @@ fun DetailsScreen(
     navController: NavController,
     movie: String?
 ) {
-    Surface(
-        Modifier.fillMaxSize()
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                backgroundColor = MaterialTheme.colors.primaryVariant,
+                elevation = 4.dp
+            ) {
+                Row(horizontalArrangement = Arrangement.Start) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back",
+                        modifier = Modifier.clickable {
+                            navController.popBackStack()
+                        })
+                    Spacer(modifier = Modifier.width(100.dp))
+                    Text("Movies")
+                }
+            }
+        }
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+        Surface(
+            Modifier.fillMaxSize()
         ) {
-            Text(
-                "$movie",
-                style = MaterialTheme.typography.h5
-            )
-            Spacer(Modifier.height(24.dp))
-            Button(onClick ={
-                navController.popBackStack()
-            }) {
-                Text("Go Back")
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    "$movie",
+                    style = MaterialTheme.typography.h5
+                )
             }
         }
     }
+
+
 }
