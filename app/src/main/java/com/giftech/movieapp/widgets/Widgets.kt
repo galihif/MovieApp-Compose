@@ -11,9 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import coil.transform.CircleCropTransformation
 import com.giftech.movieapp.model.Movie
 import com.giftech.movieapp.model.getMovies
 
@@ -49,8 +52,12 @@ fun MovieRow(
             ) {
 
                 AsyncImage(
-                    model = movie.images[0],
-                    contentDescription = null
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(movie.images[0])
+                        .crossfade(true)
+                        .transformations(CircleCropTransformation())
+                        .build(),
+                    contentDescription = "",
                 )
 //                Icon(
 //                    imageVector = Icons.Default.AccountBox,
