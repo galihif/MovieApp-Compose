@@ -95,7 +95,7 @@ fun MovieRow(
                             withStyle(style = SpanStyle(color = Color.DarkGray, fontSize = 12.sp)){
                                 append("Plot: ")
                             }
-                            withStyle(style = SpanStyle(color = Color.DarkGray, fontSize = 12.sp, fontWeight = FontWeight.Bold)){
+                            withStyle(style = SpanStyle(color = Color.DarkGray, fontSize = 12.sp, fontWeight = FontWeight.Light)){
                                 append(movie.plot)
                             }
                         }, modifier = Modifier.padding(6.dp))
