@@ -15,7 +15,7 @@ import androidx.navigation.NavController
 @Composable
 fun DetailsScreen(
     navController: NavController,
-    movie: String?
+    movieId: String?
 ) {
     Scaffold(
         topBar = {
@@ -44,7 +44,7 @@ fun DetailsScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    "$movie",
+                    "$movieId",
                     style = MaterialTheme.typography.h5
                 )
             }
